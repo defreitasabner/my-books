@@ -1,15 +1,11 @@
 export class Book {
-    private _title: string;
-    private _author: string;
-    private _genders: string[];
-    private _pageNumber: number;
 
-    constructor(title: string, author: string, genders: string[], pageNumber: number) {
-        this._title = title,
-        this._author = author,
-        this._genders = genders,
-        this._pageNumber = pageNumber
-    };
+    constructor(
+        private _title: string,
+        private _author: string, 
+        private _genders: string[], 
+        private _pageNumber: number
+    ){};
 
     get title(): string {
         return this._title;
