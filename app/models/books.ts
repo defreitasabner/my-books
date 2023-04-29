@@ -7,7 +7,7 @@ export class Books {
         this.books.push(book);
     }
 
-    list(): ReadonlyArray<Book> {
+    list(): readonly Book[] {
         return this.books;
     }
 }
