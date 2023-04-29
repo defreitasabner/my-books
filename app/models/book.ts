@@ -1,4 +1,4 @@
-class Book {
+export class Book {
     private _title;
     private _author;
     private _genders;
