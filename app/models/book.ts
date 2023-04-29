@@ -1,11 +1,23 @@
 export class Book {
 
+    private static id_count: number = 0;
+    private _id: number;
+    private _timestamp: Date;
+
     constructor(
         private _title: string,
         private _author: string, 
         private _genders: string[], 
-        private _pageNumber: number
-    ){};
+        private _pageNumber: number,
+    ){
+        this._id = Book.id_count;
+        Book.id_count += 1;
+        this._timestamp = new Date();
+    };
+
+    get id(): number {
+        return this._id;
+    }
 
     get title(): string {
         return this._title;
@@ -23,5 +35,9 @@ export class Book {
         return this._pageNumber;
     }
 
+    get timestamp(): Date {
+        const timestampCopy = new Date(this._timestamp.getTime());
+        return timestampCopy;
+    }
 
 }
