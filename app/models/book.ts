@@ -12,7 +12,7 @@ class Book {
     };
 
     get title() {
-        return this.title;
+        return this._title;
     }
 
     get author() {
