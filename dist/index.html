@@ -9,27 +9,30 @@
 </head>
 <body>
     <main>
-        <form class="form__container">
+        <form class="form__container" data-main-form>
             <div class="input__container">
                 <label for="title">Title</label>
-                <input name="title" class="form__input" type="text">
+                <input name="title" class="form__input" type="text" data-title>
             </div>
             <div class="input__container">
                 <label for="author">Author</label>
-                <input name="author" class="form__input" type="text">
+                <input name="author" class="form__input" type="text" data-author>
             </div>
             <div class="input__container">
-                <label for="gender">Genders</label>
-                <input name="gender" class="form__input" type="text">
+                <label for="genders">Genders</label>
+                <input name="genders" class="form__input" type="text" data-genders>
             </div>
             <div class="input__container">
                 <label for="page-number">Page Number</label>
-                <input name="page-number" class="form__input" type="text">
+                <input name="page-number" class="form__input" type="text" data-page-number>
             </div>
             <div class="button__container">
-                <input class="form__button" type="submit">
+                <input class="form__button" type="submit" data-submit-button>
             </div>
         </form>
     </main>
 </body>
+
+<script type="module" src="js/app.js"></script>
+
 </html>
