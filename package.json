@@ -6,9 +6,10 @@
   "type": "module",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
+    "server": "lite-server --baseDir=dist",
     "compile": "tsc",
     "watch": "tsc -w",
-    "start": "concurrently \"npm run watch\"  \"lite-server --baseDir=\"dist\"\""
+    "start": "concurrently \"npm run watch\"  \"npm run server\""
   },
   "keywords": [],
   "author": "",
