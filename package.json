@@ -8,12 +8,14 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "compile": "tsc",
     "watch": "tsc -w",
-    "start": "node ./dist/js/app.js"
+    "start": "concurrently \"npm run watch\"  \"lite-server --baseDir=\"dist\"\""
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "devDependencies": {
+    "concurrently": "^8.0.1",
+    "lite-server": "^2.6.1",
     "typescript": "^5.0.4"
   }
 }
