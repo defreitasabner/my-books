@@ -9,26 +9,61 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <main>
-        <form class="form__container" data-main-form>
+    <header class="header__content">
+        <h1 class="title">Minha Biblioteca</h1>
+    </header>
+    <main class="main__content">
+        <form class="form" data-main-form>
             <div class="input__container">
                 <label for="title">Title</label>
-                <input name="title" class="form__input" type="text" data-title>
+                <input 
+                    name="title" 
+                    class="form__input" 
+                    type="text"
+                    placeholder="Digite o título do livro" 
+                    required 
+                    data-title
+                >
             </div>
             <div class="input__container">
                 <label for="author">Author</label>
-                <input name="author" class="form__input" type="text" data-author>
+                <input 
+                    name="author" 
+                    class="form__input" 
+                    type="text" 
+                    placeholder="Digite o nome do autor do livro"
+                    required 
+                    data-author
+                >
             </div>
             <div class="input__container">
                 <label for="genders">Genders</label>
-                <input name="genders" class="form__input" type="text" data-genders>
+                <input 
+                    name="genders" 
+                    class="form__input" 
+                    type="text" 
+                    placeholder="Digite os gêneros literários sepados por vírgula (,)"
+                    required 
+                    data-genders
+                >
             </div>
             <div class="input__container">
                 <label for="page-number">Page Number</label>
-                <input name="page-number" class="form__input" type="text" data-page-number>
+                <input 
+                    name="page-number" 
+                    class="form__input" 
+                    type="number"
+                    placeholder="Digite a quantidade de paǵinas" 
+                    required 
+                    data-page-number
+                >
             </div>
             <div class="button__container">
-                <input class="form__button" type="submit" data-submit-button>
+                <button 
+                    class="form__button" 
+                    type="submit" 
+                    data-submit-button
+                >Adicionar</button>
             </div>
         </form>
         <div class="table__container" data-table-container></div>
