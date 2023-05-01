@@ -1,12 +1,7 @@
 import { Books } from "../models/books.js";
+import { View } from "./view.js";
 
-export class BooksView {
-
-    private parentElement: HTMLElement;
-
-    constructor(parentReference: string) {
-        this.parentElement = document.querySelector(parentReference);
-    }
+export class BooksView extends View<Books> {
 
     template(model: Books): string {
         return `
@@ -37,8 +32,5 @@ export class BooksView {
                 </tbody>
             </table>
         `;
-    }
-    render(model: Books): void {
-        this.parentElement.innerHTML = this.template(model);
     }
 }
