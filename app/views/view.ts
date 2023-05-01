@@ -6,7 +6,7 @@ export abstract class View<T> {
         this.parentElement = document.querySelector(parentElementReference);
     }
 
-    abstract template(model: T): string;
+    protected abstract template(model: T): string;
 
     render(model: T): void {
         this.parentElement.innerHTML = this.template(model);

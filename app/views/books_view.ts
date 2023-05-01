@@ -3,7 +3,8 @@ import { View } from "./view.js";
 
 export class BooksView extends View<Books> {
 
-    template(model: Books): string {
+    // when overide a method, its becomes public again
+    protected template(model: Books): string {
         return `
             <table class="table">
                 <thead>
