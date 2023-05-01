@@ -1,4 +1,4 @@
-import { BookController } from "./controller/book_controller.js";
+import { BookController } from "./controllers/book_controller.js";
 
 const bookController = new BookController();
 const form = document.querySelector('[data-main-form]');
