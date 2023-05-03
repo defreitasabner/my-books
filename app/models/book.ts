@@ -40,4 +40,22 @@ export class Book {
         return timestampCopy;
     }
 
+    public static createFromStrings(
+        title: string, 
+        author: string, 
+        genders: string, 
+        pageNumber: string,
+    ) : Book {
+        const listGendersTreated: string[] = genders.split(',').map(
+            (gender) => gender.split(' ').join('').toLowerCase()
+        );
+        const pageNumberTreated = Number(pageNumber);
+        return new Book(
+            title,
+            author,
+            listGendersTreated,
+            pageNumberTreated,
+        );
+    }
+
 }

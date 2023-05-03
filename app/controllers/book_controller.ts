@@ -19,15 +19,11 @@ export class BookController {
     }
 
     addNewBook(): void {
-        const listGendersTreated: string[] = this.inputGenders.value.split(',').map(
-            (gender) => gender.split(' ').join('').toLowerCase()
-        );
-        const pageNumberTreated = Number(this.inputPageNumber.value);
-        const newBook = new Book(
+        const newBook = Book.createFromStrings(
             this.inputTitle.value,
             this.inputAuthor.value,
-            listGendersTreated,
-            pageNumberTreated,
+            this.inputGenders.value,
+            this.inputPageNumber.value,
         );
         this.books.add(newBook);
         this.view.render(this.books);
