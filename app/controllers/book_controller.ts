@@ -11,10 +11,10 @@ export class BookController {
     private view: BooksView = new BooksView('[data-table-container]');
 
     constructor() {
-        this.inputTitle = document.querySelector('[data-title]');
-        this.inputAuthor = document.querySelector('[data-author]');
-        this.inputGenders = document.querySelector('[data-genders]');
-        this.inputPageNumber = document.querySelector('[data-page-number]');
+        this.inputTitle = document.querySelector('[data-title]') as HTMLInputElement;
+        this.inputAuthor = document.querySelector('[data-author]') as HTMLInputElement;
+        this.inputGenders = document.querySelector('[data-genders]') as HTMLInputElement;
+        this.inputPageNumber = document.querySelector('[data-page-number]') as HTMLInputElement;
         this.view.render(this.books);
     }
 

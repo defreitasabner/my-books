@@ -3,7 +3,9 @@
         "outDir": "dist/js", // em qual diretório ele irá compilar os códigos
         "target": "ES6", // para qual versão do JS ele irá converter o código
         "noEmitOnError": true, // evita que o compilador do TS faça o código JS se tiver erro
-        "noImplicitAny": true, // evita que o TS defina tipos não definidos como any
+        "noImplicitAny": true, // evita que o TS defina tipos não definidos como 
+        "removeComments": true,
+        "strictNullChecks": true,
     },
     "include": ["app/**/*"] // onde estarão os códigos TS
 }
