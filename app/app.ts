@@ -9,7 +9,7 @@ if(form) {
             event.preventDefault();
             bookController.addNewBook();
         }
-    )
+    );
 } else {
     throw Error();
 }
