@@ -8,7 +8,6 @@ namespace BookAPI.Controllers;
 [Route("[controller]")]
 public class BookController : ControllerBase
 {
-
     private static List<Book> books = new List<Book>();
     private static int id = 0;
 
