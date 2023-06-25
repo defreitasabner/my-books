@@ -4,6 +4,8 @@ namespace BookAPI.Models;
 
 public class Book
 {
+    [Key]
+    [Required]
     public int Id { get; set; }
 
     [Required(ErrorMessage = "The field 'title' is required")]
