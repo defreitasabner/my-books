@@ -1,23 +1,19 @@
 using System.ComponentModel.DataAnnotations;
 
-namespace BookAPI.Models;
+namespace BookAPI.Data.Dtos;
 
-public class Book
+public class UpdateBookDto
 {
-    [Key]
-    [Required]
-    public int Id { get; set; }
-
     [Required(ErrorMessage = "The field 'title' is required")]
-    [MaxLength(200)]
+    [StringLength(200)]
     public string Title { get; set; }
     
     [Required(ErrorMessage = "The field 'author' is required")]
-    [MaxLength(100)]
+    [StringLength(100)]
     public string Author { get; set; }
 
     [Required(ErrorMessage = "The field 'gender' is required")]
-    [MaxLength(100)]
+    [StringLength(100)]
     public string Gender { get; set; }
     
     [Required(ErrorMessage = "The field 'pageNumber' is required")]
