@@ -15,6 +15,7 @@ public class Book
     [Required(ErrorMessage = "The field 'author' is required")]
     [MaxLength(100)]
     public string Author { get; set; }
+    public virtual ICollection<Authorship> Authors { get; set; }
 
     [Required(ErrorMessage = "The field 'gender' is required")]
     [MaxLength(100)]
