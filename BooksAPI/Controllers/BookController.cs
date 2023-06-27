@@ -12,17 +12,17 @@ namespace BooksAPI.Controllers;
 public class BookController : ControllerBase
 {
 
-   private BookContext _context;
+   private MyBooksContext _context;
    private IMapper _mapper;
 
-   public BookController(BookContext context, IMapper mapper)
+   public BookController(MyBooksContext context, IMapper mapper)
    {
         _context = context;
         _mapper = mapper;
    }
 
    [HttpPost]
-   public IActionResult AddBook([FromBody] CreateBookDto bookDto)
+   public IActionResult CreateBook([FromBody] CreateBookDto bookDto)
    {
       Book book = _mapper.Map<Book>(bookDto);
       _context.Books.Add(book);
@@ -31,7 +31,7 @@ public class BookController : ControllerBase
    }
 
    [HttpGet]
-   public IActionResult ListAllBooks([FromQuery] int page = 1)
+   public IActionResult GetBooks([FromQuery] int page = 1)
    {
       if(page > 0) {
          int skip = 10 * (page - 1);

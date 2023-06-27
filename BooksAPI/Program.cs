@@ -4,7 +4,7 @@ using BooksAPI.Data;
 var builder = WebApplication.CreateBuilder(args);
 
 var connectionString = builder.Configuration.GetConnectionString("BookConnection");
-builder.Services.AddDbContext<BookContext>(
+builder.Services.AddDbContext<MyBooksContext>(
     opts => opts.UseMySql(
         connectionString,
         ServerVersion.AutoDetect(connectionString)

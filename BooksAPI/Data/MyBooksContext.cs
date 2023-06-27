@@ -4,14 +4,14 @@ using BooksAPI.Models;
 
 namespace BooksAPI.Data;
 
-public class BookContext : DbContext
+public class MyBooksContext : DbContext
 {
-    public BookContext(DbContextOptions<BookContext> opts)
+    public MyBooksContext(DbContextOptions<MyBooksContext> opts)
         : base(opts)
     {
 
     }
 
     public DbSet<Book> Books { get; set; }
-    
+    public DbSet<Author> Authors { get; set; }
 }
