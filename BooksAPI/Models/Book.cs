@@ -1,6 +1,6 @@
 using System.ComponentModel.DataAnnotations;
 
-namespace BookAPI.Models;
+namespace BooksAPI.Models;
 
 public class Book
 {
@@ -19,8 +19,4 @@ public class Book
     [Required(ErrorMessage = "The field 'gender' is required")]
     [MaxLength(100)]
     public string Gender { get; set; }
-    
-    [Required(ErrorMessage = "The field 'pageNumber' is required")]
-    [Range(0, Double.MaxValue, ErrorMessage = "The page number must be greater than 0")]
-    public int PageNumber { get; set; }
 }

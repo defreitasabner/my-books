@@ -1,4 +1,4 @@
-namespace BookAPI.Data.Dtos;
+namespace BooksAPI.Data.Dtos;
 
 public class ReadBookDto
 {

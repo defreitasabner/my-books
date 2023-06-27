@@ -1,11 +1,11 @@
 using Microsoft.AspNetCore.Mvc;
 using AutoMapper;
 
-using BookAPI.Models;
-using BookAPI.Data;
-using BookAPI.Data.Dtos;
+using BooksAPI.Models;
+using BooksAPI.Data;
+using BooksAPI.Data.Dtos;
 
-namespace BookAPI.Controllers;
+namespace BooksAPI.Controllers;
 
 [ApiController]
 [Route("[controller]")]

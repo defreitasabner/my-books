@@ -1,8 +1,8 @@
 using Microsoft.EntityFrameworkCore;
 
-using BookAPI.Models;
+using BooksAPI.Models;
 
-namespace BookAPI.Data;
+namespace BooksAPI.Data;
 
 public class BookContext : DbContext
 {

@@ -1,7 +1,7 @@
 using AutoMapper;
 
-using BookAPI.Data.Dtos;
-using BookAPI.Models;
+using BooksAPI.Data.Dtos;
+using BooksAPI.Models;
 
 namespace BooksAPI.Profiles;
 
