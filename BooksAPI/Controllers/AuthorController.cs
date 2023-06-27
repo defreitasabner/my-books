@@ -37,7 +37,7 @@ public class AuthorController : ControllerBase
             int skip = quantity * (page - 1);
             int take = quantity;
             return Ok(
-                _mapper.Map<List<ReadAuthorDto>>(_context.Authors.Skip(skip).Take(take))
+                _mapper.Map<List<ReadAuthorDto>>(_context.Authors.Skip(skip).Take(take).ToList())
             );
         } 
         else

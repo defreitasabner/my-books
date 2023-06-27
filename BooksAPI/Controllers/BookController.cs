@@ -37,7 +37,7 @@ public class BookController : ControllerBase
          int skip = 10 * (page - 1);
          const int take = 10;
          return Ok( 
-            _mapper.Map<List<ReadBookDto>>(_context.Books.Skip(skip).Take(take))
+            _mapper.Map<List<ReadBookDto>>(_context.Books.Skip(skip).Take(take).ToList())
          );
       } else {
          return BadRequest();
