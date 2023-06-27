@@ -30,3 +30,16 @@ At last, go to `myBooks` directory and run project's frontend with command:
 ~~~bash
 npm run dev
 ~~~
+## Running migrations
+To run migrations on Linux, you'll need install `Entity Framework Tolls`, with command:
+~~~bash
+dotnet tool install --global dotnet-ef
+~~~
+With these tools installed, you could create migrations running command:
+~~~bash
+dotnet ef migrations add <migration_name>
+~~~
+And you could apply changes on database with command:
+~~~bash
+dotnet ef database update
+~~~
