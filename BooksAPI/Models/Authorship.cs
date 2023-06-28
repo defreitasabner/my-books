@@ -4,10 +4,6 @@ namespace BooksAPI.Models;
 
 public class Authorship
 {
-    [Key]
-    [Required]
-    public int Id { get; set; }
-
     [Required]
     public int BookId { get; set; }
     public virtual Book Book { get; set; }
