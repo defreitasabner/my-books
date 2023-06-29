@@ -14,29 +14,24 @@ public class MyBooksContext : DbContext
 
     protected override void OnModelCreating(ModelBuilder builder)
     {
-        // Many-to-Many with class for join entity
-        builder.Entity<Author>()
-            .HasMany(author => author.Books)
-            .WithMany(book => book.Authors)
-            .UsingEntity<Authorship>(
-                right => right.HasOne<Book>().WithMany().HasForeignKey(authorship => authorship.BookId),
-                left => left.HasOne<Author>().WithMany().HasForeignKey(authorship => authorship.AuthorId)
+        builder.Entity<Book>()
+            .HasMany(book => book.Authors)
+            .WithMany(author => author.Books)
+            .UsingEntity<AuthorBook>(
+                left => left.HasOne(left => left.Author).WithMany().HasForeignKey(authorbook => authorbook.AuthorId),
+                right => right.HasOne(right => right.Book).WithMany().HasForeignKey(authorbook => authorbook.BookId) 
             );
-        
-        // Many-to-Many basic (without class to represent join table)
+
         builder.Entity<Book>()
             .HasMany(book => book.Genres)
             .WithMany(genre => genre.Books)
-            .UsingEntity(
-                "BookGenre",
-                left => left.HasOne(typeof(Book)).WithMany().HasForeignKey("BookId").HasPrincipalKey(nameof(Book.Id)),
-                right => right.HasOne(typeof(Genre)).WithMany().HasForeignKey("GenreId").HasPrincipalKey(nameof(Genre.Id)),
-                join => join.HasKey("BookId", "GenreId")
+            .UsingEntity<GenreBook>(
+                left => left.HasOne(left => left.Genre).WithMany().HasForeignKey(authorbook => authorbook.GenreId),
+                right => right.HasOne(right => right.Book).WithMany().HasForeignKey(authorbook => authorbook.BookId)
             );
     }
 
     public DbSet<Book> Books { get; set; }
     public DbSet<Author> Authors { get; set; }
     public DbSet<Genre> Genres { get; set; }
-    public DbSet<Authorship> Authorships { get; set; }
 }
