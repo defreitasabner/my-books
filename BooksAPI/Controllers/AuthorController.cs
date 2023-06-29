@@ -16,8 +16,8 @@ public class AuthorController : ControllerBase
 
     public AuthorController(MyBooksContext context, IMapper mapper)
     {
-        MyBooksContext _context = context;
-        IMapper _mapper = mapper;
+        _context = context;
+        _mapper = mapper;
     }
 
     [HttpPost]
