@@ -24,7 +24,7 @@ public class AuthorController : ControllerBase
     public IActionResult CreateAuthor([FromBody] CreateAuthorDto authorDto)
     {
         Author author = _mapper.Map<Author>(authorDto);
-        _context.Add(author);
+        _context.Authors.Add(author);
         _context.SaveChanges();
         return CreatedAtAction(nameof(GetAuthorById), new { id = author.Id }, author);
     }
