@@ -17,14 +17,19 @@ public class BookController : ControllerBase
 
    public BookController(MyBooksContext context, IMapper mapper)
    {
-        _context = context;
-        _mapper = mapper;
+      _context = context;
+      _mapper = mapper;
    }
 
    [HttpPost]
    public IActionResult CreateBook([FromBody] CreateBookDto bookDto)
    {
-      Book book = _mapper.Map<Book>(bookDto);
+      var existingAuthors = _context.Authors.Where(author => bookDto.Authors.Any(id => id == author.Id)).ToList();
+      var existingGenres = _context.Genres.Where(genre => bookDto.Genres.Any(id => id == genre.Id)).ToList();
+      if (existingAuthors.Count != bookDto.Authors.Count || existingGenres.Count != bookDto.Genres.Count) return BadRequest();
+      Book book = new Book {
+         Title = bookDto.Title,
+      };
       _context.Books.Add(book);
       _context.SaveChanges();
       return CreatedAtAction(nameof(GetBookById), new { id = book.Id }, book);
