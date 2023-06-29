@@ -5,7 +5,7 @@ var builder = WebApplication.CreateBuilder(args);
 
 var connectionString = builder.Configuration.GetConnectionString("BookConnection");
 builder.Services.AddDbContext<MyBooksContext>(
-    opts => opts.UseMySql(
+    opts => opts.UseLazyLoadingProxies().UseMySql(
         connectionString,
         ServerVersion.AutoDetect(connectionString)
         )
