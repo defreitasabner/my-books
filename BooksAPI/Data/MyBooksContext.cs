@@ -14,12 +14,24 @@ public class MyBooksContext : DbContext
 
     protected override void OnModelCreating(ModelBuilder builder)
     {
-        builder.Entity<Book>()
-            .HasMany(book => book.Authors)
-            .WithMany(author => author.Books)
+        // Many-to-Many with class for join entity
+        builder.Entity<Author>()
+            .HasMany(author => author.Books)
+            .WithMany(book => book.Authors)
             .UsingEntity<Authorship>(
-                book => book.HasOne<Book>().WithMany().HasForeignKey(authorship => authorship.BookId),
-                author => author.HasOne<Author>().WithMany().HasForeignKey(authorship => authorship.AuthorId)
+                right => right.HasOne<Book>().WithMany().HasForeignKey(authorship => authorship.BookId),
+                left => left.HasOne<Author>().WithMany().HasForeignKey(authorship => authorship.AuthorId)
+            );
+        
+        // Many-to-Many basic (without class to represent join table)
+        builder.Entity<Book>()
+            .HasMany(book => book.Genres)
+            .WithMany(genre => genre.Books)
+            .UsingEntity(
+                "BookGenre",
+                left => left.HasOne(typeof(Book)).WithMany().HasForeignKey("BookId").HasPrincipalKey(nameof(Book.Id)),
+                right => right.HasOne(typeof(Genre)).WithMany().HasForeignKey("GenreId").HasPrincipalKey(nameof(Genre.Id)),
+                join => join.HasKey("BookId", "GenreId")
             );
     }
 

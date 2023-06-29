@@ -12,5 +12,5 @@ public class Author
     [MaxLength(200)]
     public string Name { get; set; }
 
-    public List<Book> Books { get; set; }
+    public virtual ICollection<Book> Books { get; set; }
 }

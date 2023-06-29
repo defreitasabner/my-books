@@ -12,7 +12,9 @@ public class Book
     [MaxLength(200)]
     public string Title { get; set; }
     
+    [Required]
     public List<Author> Authors { get; set; }
 
+    [Required]
     public List<Genre> Genres { get; set; }
 }
