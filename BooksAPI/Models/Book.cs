@@ -9,12 +9,10 @@ public class Book
     public int Id { get; set; }
 
     [Required(ErrorMessage = "The field 'title' is required")]
-    [MaxLength(200)]
+    [MaxLength(300)]
     public string Title { get; set; }
     
-    [Required]
-    public List<Author> Authors { get; set; }
+    public virtual ICollection<Author> Authors { get; set; }
 
-    [Required]
-    public List<Genre> Genres { get; set; }
+    public virtual ICollection<Genre> Genres { get; set; }
 }
