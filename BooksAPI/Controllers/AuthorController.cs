@@ -51,7 +51,7 @@ public class AuthorController : ControllerBase
     {
         var author = _context.Authors.FirstOrDefault( author => author.Id == id );
         if(author == null) return NotFound();
-        return Ok(author);
+        return Ok(_mapper.Map<ReadAuthorDto>(author));
     }
 
     [HttpPut("{id}")]

@@ -49,7 +49,7 @@ public class BookController : ControllerBase
    {
       var book = _context.Books.FirstOrDefault(book => book.Id == id);
       if(book == null) return NotFound();
-      return Ok(book);
+      return Ok(_mapper.Map<ReadBookDto>(book));
    }
 
    [HttpPut("{id}")]
