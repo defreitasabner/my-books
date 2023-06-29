@@ -27,12 +27,12 @@ public class BookController : ControllerBase
       var existingAuthors = _context.Authors.Where(author => bookDto.Authors.Any(id => id == author.Id)).ToList();
       var existingGenres = _context.Genres.Where(genre => bookDto.Genres.Any(id => id == genre.Id)).ToList();
       if (existingAuthors.Count != bookDto.Authors.Count || existingGenres.Count != bookDto.Genres.Count) return BadRequest();
-      Book book = new Book {
-         Title = bookDto.Title,
-      };
+      Book book = new Book { Title = bookDto.Title };
+      book.Authors.AddRange(existingAuthors);
+      book.Genres.AddRange(existingGenres);
       _context.Books.Add(book);
       _context.SaveChanges();
-      return CreatedAtAction(nameof(GetBookById), new { id = book.Id }, book);
+      return CreatedAtAction(nameof(GetBookById), new { id = book.Id }, _mapper.Map<ReadBookDto>(book));
    }
 
    [HttpGet]

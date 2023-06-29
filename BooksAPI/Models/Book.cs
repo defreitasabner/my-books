@@ -12,7 +12,9 @@ public class Book
     [MaxLength(300)]
     public string Title { get; set; }
 
-    public virtual ICollection<Author> Authors { get;}
+    [Required]
+    public virtual List<Author> Authors { get; } = new();
 
-    public virtual ICollection<Genre> Genres { get; set;}
+    [Required]
+    public virtual List<Genre> Genres { get; } = new();
 }

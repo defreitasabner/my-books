@@ -2,7 +2,7 @@ using System.ComponentModel.DataAnnotations;
 
 namespace BooksAPI.Models;
 
-public class AuthorBook
+public class BookAuthor
 {
     [Required]
     public int BookId { get; set; }

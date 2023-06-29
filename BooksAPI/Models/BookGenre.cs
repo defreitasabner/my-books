@@ -2,13 +2,13 @@ using System.ComponentModel.DataAnnotations;
 
 namespace BooksAPI.Models;
 
-public class GenreBook
+public class BookGenre
 {
     [Required]
     public int BookId { get; set; }
-    public virtual Book Book { get; }
+    public virtual Book Book { get; set; }
 
     [Required]
     public int GenreId { get; set; }
-    public virtual Genre Genre { get; }
+    public virtual Genre Genre { get; set; }
 }

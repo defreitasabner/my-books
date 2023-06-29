@@ -17,21 +17,17 @@ public class MyBooksContext : DbContext
         builder.Entity<Book>()
             .HasMany(book => book.Authors)
             .WithMany(author => author.Books)
-            .UsingEntity<AuthorBook>(
-                left => left.HasOne(left => left.Author).WithMany().HasForeignKey(authorbook => authorbook.AuthorId),
-                right => right.HasOne(right => right.Book).WithMany().HasForeignKey(authorbook => authorbook.BookId) 
-            );
+            .UsingEntity<BookAuthor>();
 
         builder.Entity<Book>()
             .HasMany(book => book.Genres)
             .WithMany(genre => genre.Books)
-            .UsingEntity<GenreBook>(
-                left => left.HasOne(left => left.Genre).WithMany().HasForeignKey(authorbook => authorbook.GenreId),
-                right => right.HasOne(right => right.Book).WithMany().HasForeignKey(authorbook => authorbook.BookId)
-            );
+            .UsingEntity<BookGenre>();
     }
 
     public DbSet<Book> Books { get; set; }
     public DbSet<Author> Authors { get; set; }
     public DbSet<Genre> Genres { get; set; }
+    public DbSet<BookAuthor> BookAuthors { get; set; }
+    public DbSet<BookGenre> BookGenres { get; set; }
 }
