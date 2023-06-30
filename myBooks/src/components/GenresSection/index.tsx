@@ -1,5 +1,5 @@
-import IGenre from "../../../interfaces/IGenre";
-import { colors } from "../../../themes/theme";
+import IGenre from "../../interfaces/IGenre";
+import { colors } from "../../themes/theme";
 
 export default function GenresSection(props) {
     const genres: IGenre[] = props.genres;

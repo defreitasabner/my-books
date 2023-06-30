@@ -2,7 +2,7 @@ import Link from "next/link";
 import IBook from "../../interfaces/IBook";
 import { colors } from "../../themes/theme";
 import AuthorsSection from "./AuthorsSection";
-import GenresSection from "./GenresSection";
+import GenresSection from "../GenresSection";
 
 export default function BookCard({ id, title, authors, genres } : IBook) {
     return (
