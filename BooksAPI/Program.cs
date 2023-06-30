@@ -1,11 +1,11 @@
 using Microsoft.EntityFrameworkCore;
-using BookAPI.Data;
+using BooksAPI.Data;
 
 var builder = WebApplication.CreateBuilder(args);
 
 var connectionString = builder.Configuration.GetConnectionString("BookConnection");
-builder.Services.AddDbContext<BookContext>(
-    opts => opts.UseMySql(
+builder.Services.AddDbContext<MyBooksContext>(
+    opts => opts.UseLazyLoadingProxies().UseMySql(
         connectionString,
         ServerVersion.AutoDetect(connectionString)
         )

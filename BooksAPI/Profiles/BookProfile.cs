@@ -1,7 +1,7 @@
 using AutoMapper;
 
-using BookAPI.Data.Dtos;
-using BookAPI.Models;
+using BooksAPI.Data.Dtos;
+using BooksAPI.Models;
 
 namespace BooksAPI.Profiles;
 
@@ -11,6 +11,10 @@ public class BookProfile : Profile
     {
         CreateMap<CreateBookDto, Book>();
         CreateMap<UpdateBookDto, Book>();
-        CreateMap<Book, ReadBookDto>();
+        CreateMap<Book, ReadBookDto>()
+            .ForMember(readBookDto => readBookDto.Authors,
+                opt => opt.MapFrom(book => book.Authors))
+            .ForMember(readBookDto => readBookDto.Genres,
+                opt => opt.MapFrom(book => book.Genres));
     }
 }
