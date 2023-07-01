@@ -1,15 +1,16 @@
 import Link from "next/link";
+import { colors } from "../../../themes/theme";
 
 export default function Menu() {
     return (
         <nav>
             <li>
-                <Link href="/books">
+                <Link href="/books" style={{textDecoration: 'none', color: colors.secondary}}>
                     Livros
                 </Link>
             </li>
             <li>
-                <Link href="/authors">
+                <Link href="/authors" style={{textDecoration: 'none', color: colors.secondary}}>
                     Autores
                 </Link>
             </li>
@@ -21,6 +22,12 @@ export default function Menu() {
                     width: 30%;
                     justify-content: space-evenly;
                     align-items: center;
+                }
+                nav li {
+                    font-size: 1.2rem;
+                }
+                nav li:hover {
+                    transform: scale(1.2);
                 }
             `}</style>
         </nav>

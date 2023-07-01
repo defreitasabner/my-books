@@ -10,7 +10,7 @@ export default function SearchAddSection() {
                     <input type="submit" />
                 </fieldset>
             </form>
-            <ButtonLink text="Novo Livro" url="/addBook/" />
+            <ButtonLink text="Adicionar Novo Livro" url="/addBook/" />
             <style jsx>{`
                 section {
                     display: flex;
@@ -18,7 +18,7 @@ export default function SearchAddSection() {
                     justify-content: space-between;
                     align-items: center;
                     background-color: ${colors.primary};
-                    padding: 0.5rem;
+                    padding: 0.5rem 1rem;
                 }
             `}</style>
         </section>
