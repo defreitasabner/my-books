@@ -1,17 +1,16 @@
 import IBook from "../../src/interfaces/IBook";
 import BookCard from "../components/BookCard";
+import SearchAddSection from "../components/SearchAddSection";
 
 export default function BooksScreens(prop) {
     const books: IBook[] = prop.books;
     return (
         <main>
+            <SearchAddSection />
             <div>
                 {books.map((book) => <BookCard key={book.id} {...book} />)}
             </div>
             <style jsx>{`
-                main {
-                    padding: 1.5rem;
-                }
                 div {
                     display: grid;
                     grid-template-columns: repeat(4, 1fr);
