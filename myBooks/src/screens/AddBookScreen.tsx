@@ -3,9 +3,9 @@ import { useRouter } from 'next/router';
 
 import IAuthor from "../interfaces/IAuthor";
 import IGenre from "../interfaces/IGenre";
-import ListFormField from '../components/SearchAddSection/ListFormField';
+import ListFormField from '../components/ListFormField';
 import { colors } from '../themes/theme';
-import SimpleFormField from '../components/SearchAddSection/SimpleFormField';
+import SimpleFormField from '../components/SimpleFormField';
 
 export default function AddBookScreen(props) {
 

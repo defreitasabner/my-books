@@ -16,6 +16,7 @@ export default function SearchAddSection() {
                     display: flex;
                     flex-direction: row;
                     justify-content: space-between;
+                    align-items: center;
                     background-color: ${colors.primary};
                     padding: 0.5rem;
                 }

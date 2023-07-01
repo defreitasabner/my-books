@@ -1,4 +1,4 @@
-import { colors } from "../../../themes/theme";
+import { colors } from "../../themes/theme";
 
 export default function ListFormField({ 
     label, 
