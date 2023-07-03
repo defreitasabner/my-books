@@ -74,11 +74,11 @@ public class BookController : ControllerBase
    }
 
    [HttpPut("{id}")]
-   public IActionResult UpdateBook(int id, [FromBody] UpdateBookDto bookDot)
+   public IActionResult UpdateBook(int id, [FromBody] UpdateBookDto bookDto)
    {
       var book = _context.Books.FirstOrDefault(book => book.Id == id);
       if(book == null) return NotFound();
-      _mapper.Map(bookDot, book);
+      _mapper.Map(bookDto, book);
       _context.SaveChanges();
       return NoContent();
    }
