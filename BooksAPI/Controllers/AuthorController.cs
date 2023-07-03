@@ -11,8 +11,8 @@ namespace BooksAPI.Controllers;
 [Route("[controller]")]
 public class AuthorController : ControllerBase
 {
-    private MyBooksContext _context;
-    private IMapper _mapper;
+    private readonly MyBooksContext _context;
+    private readonly IMapper _mapper;
 
     public AuthorController(MyBooksContext context, IMapper mapper)
     {
@@ -30,14 +30,35 @@ public class AuthorController : ControllerBase
     }
 
     [HttpGet]
-    public IActionResult GetAuthors([FromQuery] int page = 1, [FromQuery] int quantity = 10)
+    public IActionResult GetAuthors(
+        [FromQuery] string name = "",
+        [FromQuery] int page = 1, 
+        [FromQuery] int pageSize = 10
+    )
     {
-        if(page > 0 && quantity > 0)
+        if(page > 0 && pageSize > 0)
         {
-            int skip = quantity * (page - 1);
-            int take = quantity;
+            int skip = pageSize * (page - 1);
+            int take = pageSize;
+            if(name.Length == 0)
+            {
+                return Ok(
+                    _mapper.Map<List<ReadAuthorDto>>(
+                        _context.Authors
+                            .Skip(skip)
+                                .Take(take)
+                                    .ToList()
+                    )
+                );
+            }
             return Ok(
-                _mapper.Map<List<ReadAuthorDto>>(_context.Authors.Skip(skip).Take(take).ToList())
+                _mapper.Map<List<ReadAuthorDto>>(
+                    _context.Authors
+                        .Where(author => author.Name.Contains(name))
+                            .Skip(skip)
+                                .Take(take)
+                                    .ToList()
+                )
             );
         } 
         else
