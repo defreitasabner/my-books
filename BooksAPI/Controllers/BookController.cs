@@ -12,8 +12,8 @@ namespace BooksAPI.Controllers;
 public class BookController : ControllerBase
 {
 
-   private MyBooksContext _context;
-   private IMapper _mapper;
+   private readonly MyBooksContext _context;
+   private readonly IMapper _mapper;
 
    public BookController(MyBooksContext context, IMapper mapper)
    {
@@ -36,13 +36,29 @@ public class BookController : ControllerBase
    }
 
    [HttpGet]
-   public IActionResult GetBooks([FromQuery] int page = 1)
+   public IActionResult GetBooks(
+      [FromQuery] string title = "",
+      [FromQuery] int page = 1, 
+      [FromQuery] int pageSize = 10
+   )
    {
       if(page > 0) {
-         int skip = 10 * (page - 1);
-         const int take = 10;
-         return Ok( 
-            _mapper.Map<List<ReadBookDto>>(_context.Books.Skip(skip).Take(take).ToList())
+         int skip = pageSize * (page - 1);
+         int take = pageSize;
+         if(title.Length == 0)
+         {
+            return Ok( 
+               _mapper.Map<List<ReadBookDto>>(_context.Books.Skip(skip).Take(take).ToList())
+            );
+         }
+         return Ok(
+            _mapper.Map<List<ReadBookDto>>(
+               _context.Books
+                  .Where(book => book.Title.Contains(title))
+                     .Skip(skip)
+                        .Take(take)
+                           .ToList()
+            )
          );
       } else {
          return BadRequest();
