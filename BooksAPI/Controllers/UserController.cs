@@ -29,7 +29,7 @@ public class UserController : ControllerBase
     [HttpPost("login")]
     public async Task<IActionResult> Login(LoginUserDto userDto)
     {
-        await _authService.LoginUser(userDto);
-        return Ok("User login successfully!");
+        var token = await _authService.LoginUser(userDto);
+        return Ok(token);
     }
 }
