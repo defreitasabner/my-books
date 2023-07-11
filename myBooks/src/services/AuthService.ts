@@ -35,3 +35,5 @@ class AuthService extends BaseService
         return false;
     }
 }
+
+export default AuthService;
